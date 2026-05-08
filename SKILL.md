@@ -59,20 +59,107 @@ The `.runtime/` directory is ephemeral (gitignored) and should not be committed.
 
 ## Translation Quality Requirements
 
-When filling translations, follow these rules:
+### Core Translation Principles
 
-1. **Professional and natural** — produce fluent, publication-ready translations; avoid word-for-word calques
-2. **Accurate terminology** — use industry-standard terms in the target language (SaaS, PDF, e-signature, etc.)
-3. **Localized expression** — adapt phrasing, honorifics, and word order to the target locale's conventions
-4. **Preserve brand / product names in English** — the following names must NEVER be translated; embed them as-is in the translated sentence:
-   - **Brand**: `Foxit` and all official product line names
-   - **Product lines** (including suffix/symbol variants):
-     - `Foxit PDF Editor`, `Foxit eSign`, `Foxit PDF Editor+`, etc.
-     - `PDF Editor`, `PDF Editor+`, `PDF Editor Suite`, `PDF Editor Pro`, `PDF Editor Pro+`
-     - `PDF SDK`, `PDF IFilter`, `PDF Compressor`
-     - `eSign Business`, `eSign Essentials`
-     - `AI Assistant` (Foxit feature name)
-   - **Approach**: embed the English name directly in the translated sentence; add prepositions/particles around the name per target language grammar — do NOT transliterate or translate the name itself
+- Translate accurately, naturally, and fluently into the target language.
+- The translation must sound native to the target market, not like a literal English translation.
+- Preserve the original meaning, intent, tone, and marketing purpose.
+- Use clear, professional, website-ready language suitable for a PDF software company.
+- Prefer concise, benefit-oriented wording for headings, buttons, CTAs, and UI labels.
+- Avoid overly formal, awkward, or machine-translated phrasing.
+
+### Terminology
+
+- Keep `Foxit` unchanged.
+- Keep official product names such as `Foxit PDF Editor` unchanged unless the target locale has an approved official translation:
+  `Foxit PDF Editor`, `Foxit PDF Editor+`, `Foxit PDF Reader`, `Foxit eSign`, `Foxit PDF SDK`, `Foxit AI Assistant`, `PDF Editor`, `PDF Editor+`, `PDF Editor Suite`, `PDF Editor Pro`, `PDF Editor Pro+`, `PDF SDK`, `PDF IFilter`, `PDF Compressor`, `eSign`, `eSign Business`, `eSign Essentials`, `AI Assistant`, `Smart Redact`, `Maestro Server OCR`
+- Keep common file format names unchanged: `PDF`, `JPG`, `PPT`, `Excel`, `Word`, `PowerPoint`, `HTML`, `RTF`, `OCR`.
+- Use consistent translations for repeated content (or similar content) within the same file or across different files.
+- Maintain a professional software/SaaS terminology style.
+
+### Website and Marketing Style
+
+- Headings should be natural, clear, and compelling in the target language.
+- CTAs should be short and action-oriented.
+- FAQ answers should be clear, direct, and helpful.
+- Feature descriptions should emphasize user benefits, not just literal functions.
+- Keep SEO intent where possible, especially terms related to PDF compression, conversion, editing, security, online tools, and file size reduction.
+- Avoid keyword stuffing; SEO terms should read naturally.
+
+### Locale Quality
+
+- Adapt grammar, punctuation, capitalization, spacing, and quotation marks to the target language.
+- Use native punctuation conventions where appropriate.
+- For German, French, Italian, Spanish, etc., avoid English sentence structure when it sounds unnatural.
+- For UI labels, keep translations compact enough for buttons, tabs, menus, and cards.
+- Preserve measurements, numbers, product trial periods, and limits exactly unless localization is explicitly requested.
+
+### Accuracy and Safety
+
+- Do not exaggerate claims beyond the English source.
+- Do not weaken legal, privacy, security, or compliance statements.
+- Preserve meaning for sensitive statements about encryption, deletion, privacy, compliance, file handling, and data security.
+- Do not introduce new features, guarantees, prices, or availability information.
+
+### Key Notes for Each Language
+
+#### ar (Arabic)
+
+- Use RTL writing. When embedding English product names, let the browser handle bidirectional text; do not manually reverse the character order of English text.
+- Use Arabic punctuation marks: `،`, `؛`, `؟`. Avoid half-width `,;?`.
+- Keep numerals consistent within the same file; do not mix ASCII digits with Arabic-Indic digits.
+
+#### de (German)
+
+- **Capitalize all nouns** (including common nouns and compound nouns); do not copy English lowercase usage.
+- Use hyphens when combined with English abbreviations (`Cloud-Speicher`), but keep official Foxit product names fully in English without hyphens (`Foxit PDF Editor`, not `Foxit-PDF-Editor`).
+- Use quotation marks `„…“`; use the formal pronoun `Sie` consistently.
+
+#### es (Spanish)
+
+- Questions and exclamations must use both opening and closing marks: `¿…?`, `¡…!`; never omit the opening mark.
+- Use neutral international Spanish by default, with the formal pronoun `usted`.
+- Use the infinitive form for UI buttons (`Descargar`, `Suscribirse`).
+
+#### fr (French)
+
+- Insert a **non-breaking space** (U+00A0 or U+202F) before `:`, `;`, `?`, `!`, and `»`, for example: `Ventes :`, `Continuer ?`.
+- Use quotation marks `« … »` (with non-breaking spaces inside).
+- Use the formal pronoun `vous`; use the infinitive form for UI buttons (`Télécharger`, `S'abonner`).
+- Use a narrow non-breaking space for thousands separators in large numbers (`1 000`); prefer the ellipsis character `…` (U+2026).
+
+#### it (Italian)
+
+- Use the formal pronoun `Lei`; punctuation should be half-width, without French-style spacing rules.
+- Keep UI button style consistent across the site (imperative or infinitive).
+
+#### ja (Japanese)
+
+- Use full-width punctuation `。、？！`; quotation marks should be `「」` / `『』`.
+- Whether to insert a half-width space next to English text should follow the existing style; do not mix styles within the same file.
+- Use polite style (`です・ます`) by default; for katakana loanwords, follow JIS conventions for long vowels (`エディター`, `ユーザー`, `サーバー`).
+
+#### nl (Dutch)
+
+- Use the formal pronoun `u`; common compound nouns tend to be written as one word or with hyphens (`PDF-bewerker`), while official Foxit product names remain in English.
+- Use either `'…'` or `"…"` quotation marks, consistently with the rest of the site.
+
+#### pt (Portuguese)
+
+- This project uses **Brazilian Portuguese (pt-BR)**, so follow pt-BR conventions.
+- Use the second-person pronoun `você`; use the infinitive form for UI buttons (`Baixar`, `Assinar`, `Inscrever-se`).
+
+#### ru (Russian)
+
+- Use quotation marks `« … »`; use the em dash `—`, distinct from the hyphen `-`.
+- Translations are often 30-50% longer than the English source, so pay attention to UI space constraints; however, **do not omit key information just to shorten the text**.
+- Keep usage of `вы` / `Вы` consistent with existing site terminology.
+
+#### zh-TW (Traditional Chinese / Taiwan)
+
+- **Traditional Chinese characters** must be used; Simplified Chinese is not allowed.
+- Follow Taiwan terminology: `軟體`, `資訊`, `儲存`, `電子郵件`, `下載`, `影片`, `滑鼠`, `預設`, `範本`; avoid Mainland China terms such as `软件`, `信息`, `存储`, `邮箱`, `视频`, `鼠标`, `默认`, `模板`.
+- Use full-width punctuation `，。；：？！`; quotation marks should be `「」` / `『』`.
 
 ## What the Scripts Detect
 
